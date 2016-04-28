@@ -26,17 +26,19 @@
             password: True
             text: ''
 
-    Button:
-        text: 'Ingresar'
-        on_press: root.login_pressed(self)
-        size_hint_y: None
-        height: '32dp'
+    BoxLayout:
+		size_hint_y: None
+		Button:
+			text: 'Ingresar'
+			on_press: root.login_pressed(self)
+			size_hint_y: None
+			height: '32dp'
 
-    Button:
-        text: 'Cerrar'
-        on_press: root.close_pressed(self)
-        size_hint_y: None
-        height: '32dp'
+		Button:
+			text: 'Cerrar'
+			on_press: root.close_pressed(self)
+			size_hint_y: None
+			height: '32dp'
 
 
 

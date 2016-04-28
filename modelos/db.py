@@ -21,37 +21,12 @@
 #  MA 02110-1301, USA.
 #  
 #  
+from pydal import DAL, Field
 
+db = DAL('sqlite://ventas.db')
 
-from kivy.uix.gridlayout import GridLayout
-from modelos import db
+db.define_table('usuarios', 
+    Field('usuario', length=30, default=''),
+    Field('clave', length=30, default=''),
+	)
 
-class LoginControl(GridLayout):
-    _parentwidget=None
-    db = db.db
-
-    def __init__(self, **kwargs):
-        super(LoginControl,self).__init__(**kwargs)
-        self.userid.text=''
-
-    def setparent(self,parent):
-        self._parentwidget=parent
-
-    def changewidget(self,to):
-        self._parentwidget.changewidget(to)
-
-    def login_pressed(self,button):
-        print(button.text)
-        print(self.userid.text)
-        print(self.userpw.text)
-        self.changewidget('AfterLogin')
-
-    def close_pressed(self,button):
-        print(button.text)
-        exit()
-
-
-class AfterLogin(GridLayout):
-
-    def __init__(self,**kwargs):
-        super(AfterLogin,self).__init__(**kwargs)
