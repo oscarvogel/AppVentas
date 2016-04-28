@@ -1,0 +1,46 @@
+<LoginControl>:
+    rows: 4
+    cols: 1
+
+    userid: userid
+    userpw: userpw
+
+    BoxLayout:
+        size_hint_y: None
+        height: '32dp'
+        Label:
+            text: 'Usuario'
+
+        TextInput:
+            id: userid
+            text: ''
+
+    BoxLayout:
+        size_hint_y: None
+        height: '32dp'
+        Label:
+            text: 'Password'
+
+        TextInput:
+            id: userpw
+            password: True
+            text: ''
+
+    Button:
+        text: 'Ingresar'
+        on_press: root.login_pressed(self)
+        size_hint_y: None
+        height: '32dp'
+
+    Button:
+        text: 'Cerrar'
+        on_press: root.close_pressed(self)
+        size_hint_y: None
+        height: '32dp'
+
+
+
+<AfterLogin>:
+    rows: 1
+    Label:
+        text: 'Ingresaste'
