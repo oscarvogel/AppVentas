@@ -21,12 +21,16 @@
 #  MA 02110-1301, USA.
 #  
 #  
-from pydal import DAL, Field
+import sqlite3 as lite
 
-db = DAL('sqlite://ventas.db')
-
-db.define_table('usuarios', 
-    Field('usuario', length=30, default=''),
-    Field('clave', length=30, default=''),
-	)
-
+try:
+    db = lite.connect('ventas.db')
+    cur = db.cursor()    
+    
+except lite.Error, e:
+    print "Error %s:" % e.args[0]
+    
+finally:
+    
+    if db:
+        db.close()
