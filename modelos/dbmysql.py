@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  logincodes.py
+#  dbmysql.py
 #  
 #  Copyright 2016 Jose Oscar Vogel <oscarvogel@gmail.com>
 #  
@@ -21,12 +21,13 @@
 #  MA 02110-1301, USA.
 #  
 #  
-import sqlite3 as lite
+
+import MySQLdb as mdb
 
 try:
-    db = lite.connect('ventas.db')
-    cur = db.cursor()    
-    
-except lite.Error, e:
-    print "Error %s:" % e.args[0]
+    mycon = mdb.connect('192.168.0.200', 'root', 'fasca', 'clarita');
+   
+except mdb.Error, e:
+  
+    print "Error %d: %s" % (e.args[0],e.args[1])
     
